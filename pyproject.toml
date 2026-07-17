@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hyperkahler-ai"
+version = "0.1.0"
+description = "Unified Hyperkähler AI framework: quaternion autoencoders + transformers"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Subunits", email = "contact@subunits.dev"}
+]
+keywords = ["quaternion", "hyperkahler", "autoencoder", "transformer", "deep-learning"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "torch>=1.9.0",
+    "torchvision>=0.10.0",
+    "numpy>=1.19.0",
+    "tqdm>=4.50.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.10.0",
+    "black>=21.0",
+    "flake8>=3.9.0",
+    "mypy>=0.900",
+]
+notebook = [
+    "jupyter>=1.0.0",
+    "matplotlib>=3.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/subunits/hyperkahler-ai"
+Repository = "https://github.com/subunits/hyperkahler-ai.git"
+Issues = "https://github.com/subunits/hyperkahler-ai/issues"
+
+[tool.setuptools]
+packages = ["hyperkahler", "hyperkahler.core", "hyperkahler.autoencoders", 
+            "hyperkahler.transformers", "hyperkahler.fusion", "hyperkahler.training"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
